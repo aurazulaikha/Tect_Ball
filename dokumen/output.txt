@@ -1,0 +1,100 @@
+PS D:\SEMESTER 6\Capstone\ballbar - Copy> & "d:/SEMESTER 6/Capstone/ballbar - Copy/venv/Scripts/python.exe" "d:/SEMESTER 6/Capstone/ballbar - Copy/model/model.py"
+2025-06-16 09:37:53.849617: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2025-06-16 09:37:55.448645: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+Found 2035 files belonging to 4 classes.
+2025-06-16 09:37:59.735328: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: SSE3 SSE4.1 SSE4.2 AVX AVX2 AVX512F AVX512_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Found 509 files belonging to 4 classes.
+Class Detected: ['basketball', 'football', 'no_ball', 'volleyball']
+2025-06-16 09:38:10.576266: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:452] ShuffleDatasetV3:16: Filling up shuffle buffer (this may take a while): 28 of 1000
+2025-06-16 09:38:22.750398: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:482] Shuffle buffer filled.
+2025-06-16 09:38:23.138973: I tensorflow/core/framework/local_rendezvous.cc:407] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+Class Weights: {0: np.float64(1.1305555555555555), 1: np.float64(0.7481617647058824), 2: np.float64(1.3824728260869565), 3: np.float64(0.9473929236499069)}
+Model: "sequential_1"
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┓
+┃ Layer (type)                         ┃ Output Shape                ┃         Param # ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━┩
+│ mobilenetv2_1.00_224 (Functional)    │ (None, 7, 7, 1280)          │       2,257,984 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ global_average_pooling2d             │ (None, 1280)                │               0 │
+│ (GlobalAveragePooling2D)             │                             │                 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ dense (Dense)                        │ (None, 128)                 │         163,968 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ dropout (Dropout)                    │ (None, 128)                 │               0 │
+├──────────────────────────────────────┼─────────────────────────────┼─────────────────┤
+│ dense_1 (Dense)                      │ (None, 4)                   │             516 │
+└──────────────────────────────────────┴─────────────────────────────┴─────────────────┘
+ Total params: 2,422,468 (9.24 MB)
+ Trainable params: 164,484 (642.52 KB)
+ Non-trainable params: 2,257,984 (8.61 MB)
+Epoch 1/30
+64/64 ━━━━━━━━━━━━━━━━━━━━ 41s 572ms/step - accuracy: 0.5744 - loss: 1.1393 - val_accuracy: 0.8507 - val_loss: 0.4067
+Epoch 2/30
+64/64 ━━━━━━━━━━━━━━━━━━━━ 32s 495ms/step - accuracy: 0.8556 - loss: 0.4003 - val_accuracy: 0.8880 - val_loss: 0.3251
+Epoch 3/30
+64/64 ━━━━━━━━━━━━━━━━━━━━ 31s 490ms/step - accuracy: 0.9058 - loss: 0.2736 - val_accuracy: 0.8939 - val_loss: 0.2848
+Epoch 4/30
+64/64 ━━━━━━━━━━━━━━━━━━━━ 31s 488ms/step - accuracy: 0.9353 - loss: 0.2066 - val_accuracy: 0.8978 - val_loss: 0.2901
+Epoch 5/30
+64/64 ━━━━━━━━━━━━━━━━━━━━ 32s 504ms/step - accuracy: 0.9530 - loss: 0.1495 - val_accuracy: 0.9057 - val_loss: 0.2542
+Epoch 6/30
+64/64 ━━━━━━━━━━━━━━━━━━━━ 31s 489ms/step - accuracy: 0.9578 - loss: 0.1289 - val_accuracy: 0.8998 - val_loss: 0.2911
+Epoch 7/30
+64/64 ━━━━━━━━━━━━━━━━━━━━ 31s 488ms/step - accuracy: 0.9638 - loss: 0.1032 - val_accuracy: 0.8998 - val_loss: 0.2688
+Epoch 8/30
+64/64 ━━━━━━━━━━━━━━━━━━━━ 31s 490ms/step - accuracy: 0.9833 - loss: 0.0732 - val_accuracy: 0.8919 - val_loss: 0.2866
+Epoch 9/30
+64/64 ━━━━━━━━━━━━━━━━━━━━ 32s 494ms/step - accuracy: 0.9855 - loss: 0.0516 - val_accuracy: 0.9037 - val_loss: 0.2671
+Epoch 10/30
+64/64 ━━━━━━━━━━━━━━━━━━━━ 32s 495ms/step - accuracy: 0.9881 - loss: 0.0541 - val_accuracy: 0.9018 - val_loss: 0.2530
+Epoch 11/30
+64/64 ━━━━━━━━━━━━━━━━━━━━ 31s 492ms/step - accuracy: 0.9897 - loss: 0.0415 - val_accuracy: 0.9096 - val_loss: 0.2512
+Epoch 12/30
+64/64 ━━━━━━━━━━━━━━━━━━━━ 31s 490ms/step - accuracy: 0.9966 - loss: 0.0250 - val_accuracy: 0.9077 - val_loss: 0.2593
+Epoch 13/30
+64/64 ━━━━━━━━━━━━━━━━━━━━ 31s 490ms/step - accuracy: 0.9914 - loss: 0.0316 - val_accuracy: 0.9037 - val_loss: 0.2833
+Epoch 14/30
+64/64 ━━━━━━━━━━━━━━━━━━━━ 31s 492ms/step - accuracy: 0.9979 - loss: 0.0203 - val_accuracy: 0.9037 - val_loss: 0.2869
+Epoch 15/30
+64/64 ━━━━━━━━━━━━━━━━━━━━ 31s 493ms/step - accuracy: 0.9974 - loss: 0.0185 - val_accuracy: 0.9057 - val_loss: 0.2690
+Epoch 16/30
+64/64 ━━━━━━━━━━━━━━━━━━━━ 31s 488ms/step - accuracy: 0.9974 - loss: 0.0184 - val_accuracy: 0.8998 - val_loss: 0.2594
+Epoch 17/30
+64/64 ━━━━━━━━━━━━━━━━━━━━ 31s 490ms/step - accuracy: 0.9981 - loss: 0.0158 - val_accuracy: 0.9037 - val_loss: 0.2881
+Epoch 18/30
+64/64 ━━━━━━━━━━━━━━━━━━━━ 31s 488ms/step - accuracy: 0.9983 - loss: 0.0147 - val_accuracy: 0.9018 - val_loss: 0.3068
+Epoch 19/30
+64/64 ━━━━━━━━━━━━━━━━━━━━ 32s 495ms/step - accuracy: 0.9987 - loss: 0.0103 - val_accuracy: 0.9037 - val_loss: 0.2734
+Epoch 20/30
+64/64 ━━━━━━━━━━━━━━━━━━━━ 31s 488ms/step - accuracy: 0.9981 - loss: 0.0121 - val_accuracy: 0.9116 - val_loss: 0.2828
+Epoch 21/30
+64/64 ━━━━━━━━━━━━━━━━━━━━ 31s 488ms/step - accuracy: 0.9971 - loss: 0.0131 - val_accuracy: 0.9037 - val_loss: 0.2821
+Epoch 22/30
+64/64 ━━━━━━━━━━━━━━━━━━━━ 31s 488ms/step - accuracy: 0.9969 - loss: 0.0142 - val_accuracy: 0.8959 - val_loss: 0.3018
+Epoch 23/30
+64/64 ━━━━━━━━━━━━━━━━━━━━ 31s 488ms/step - accuracy: 0.9961 - loss: 0.0157 - val_accuracy: 0.8900 - val_loss: 0.3373
+Epoch 24/30
+64/64 ━━━━━━━━━━━━━━━━━━━━ 31s 488ms/step - accuracy: 0.9948 - loss: 0.0149 - val_accuracy: 0.8841 - val_loss: 0.3342
+Epoch 25/30
+64/64 ━━━━━━━━━━━━━━━━━━━━ 31s 489ms/step - accuracy: 0.9999 - loss: 0.0084 - val_accuracy: 0.8919 - val_loss: 0.3340
+e/lib/png/png_io.cc:92] PNG warning: iCCP: known incorrect sRGB profile
+2025-06-16 09:54:15.517688: I tensorflow/core/framework/local_rendezvous.cc:407] Local rendezvous is aborting with status: OUT_OF_RANGE: End of sequence
+16/16 ━━━━━━━━━━━━━━━━━━━━ 8s 454ms/step
+
+=== Laporan Klasifikasi ===
+              precision    recall  f1-score   support
+
+  basketball       0.91      0.93      0.92       113
+    football       0.92      0.96      0.94       170
+     no_ball       0.90      0.91      0.91        92
+  volleyball       0.93      0.84      0.89       134
+
+    accuracy                           0.92       509
+   macro avg       0.91      0.91      0.91       509
+weighted avg       0.92      0.92      0.91       509
+
+
+ Akurasi akhir (Training): 99.85%
+ Akurasi akhir (Validasi): 91.55%
+PS D:\SEMESTER 6\Capstone\ballbar - Copy>
